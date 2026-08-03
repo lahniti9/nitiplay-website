@@ -14,6 +14,7 @@ export const founder = {
   name: "Ismail Lahniti",
   role: "Founder & Lead Developer",
   age: 23,
+  image: "/images/founder-profile.jpg",
   bio: "Ismail Lahniti is a 23-year-old mobile app developer from Morocco and the founder of NitiPlay LLC. He has built and shipped multiple apps on the App Store — including puzzle hits like Arrow Maze Rush and Arrow Way Out, plus utilities like RBX Counters.",
   highlights: [
     "3+ apps live on the Apple App Store",

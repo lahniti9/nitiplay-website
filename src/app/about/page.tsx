@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MapPin, Mail, Calendar, Award } from "lucide-react";
 import { createPageMetadata } from "@/lib/metadata";
 import { company, founder } from "@/lib/data";
@@ -31,12 +32,18 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <GlassCard className="relative overflow-hidden p-0">
-              <div className="aspect-square bg-surface border border-border flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full bg-primary text-5xl font-display font-bold text-white">
-                    IL
-                  </div>
-                  <p className="font-display text-2xl font-bold text-foreground">
+              <div className="relative aspect-[4/5] overflow-hidden sm:aspect-square">
+                <Image
+                  src={founder.image}
+                  alt={`${founder.name}, ${founder.role} at ${company.name}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <p className="font-display text-2xl font-bold text-white">
                     {founder.name}
                   </p>
                   <p className="mt-1 text-primary">{founder.role}</p>

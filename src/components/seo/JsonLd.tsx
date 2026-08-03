@@ -16,6 +16,7 @@ export function JsonLd() {
       "@type": "Person",
       name: founder.name,
       jobTitle: founder.role,
+      image: `${siteUrl}${founder.image}`,
       nationality: "Morocco",
     },
     sameAs: [],
