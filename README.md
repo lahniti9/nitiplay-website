@@ -42,7 +42,10 @@ NEXT_PUBLIC_SITE_URL=https://nitiplay.com
 | `/services` | Publishing, utilities, design, partnerships |
 | `/our-apps` | Full app catalog with store badges |
 | `/contact` | Contact form & company info |
-| `/privacy` | Privacy policy |
+| `/privacy` | Company privacy policy |
+| `/ff4-tool/` | FF4 Tool support (App Store Support URL) |
+| `/ff4-tool/privacy` | FF4 Tool privacy policy (App Store Privacy URL) |
+| `/ff4-tool/terms` | FF4 Tool terms of use / app rules (custom EULA) |
 
 ## Brand Assets
 

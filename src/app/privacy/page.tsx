@@ -13,11 +13,11 @@ export const metadata: Metadata = createPageMetadata(
 const sections = [
   {
     title: "Introduction",
-    content: `This Privacy Policy describes how ${company.name} ("we," "us," or "our") collects, uses, and shares information when you use our mobile applications, website, and related services. By using our services, you agree to the collection and use of information in accordance with this policy.`,
+    content: `This Privacy Policy describes how ${company.name} ("we," "us," or "our") collects, uses, and shares information when you use our website and related services. Individual apps have their own App Store privacy labels and app-specific policies linked below. Use those app pages for Apple App Store Connect.`,
   },
   {
-    title: "Information We Collect",
-    content: `We may collect information you provide directly (such as name and email when contacting us), device information (device type, operating system, unique device identifiers), usage data (app interactions, crash reports, performance metrics), and analytics data to improve our apps and services. Our mobile apps may use third-party analytics and advertising SDKs that collect data in accordance with their respective privacy policies.`,
+    title: "Website information we collect",
+    content: `On this website we may collect information you provide directly (such as name and email when contacting us). We do not require an account to browse the site. We do not sell personal information.`,
   },
   {
     title: "How We Use Information",
@@ -50,7 +50,7 @@ const sections = [
 ];
 
 export default function PrivacyPage() {
-  const lastUpdated = "August 3, 2025";
+  const lastUpdated = "August 27, 2026";
 
   return (
     <>
@@ -68,6 +68,45 @@ export default function PrivacyPage() {
       <section className="pb-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
+            <GlassCard hover={false}>
+              <h2 className="font-display text-xl font-bold text-foreground">
+                App Store legal pages
+              </h2>
+              <p className="mt-3 text-muted leading-relaxed">
+                Use these public HTTPS URLs in App Store Connect. They match each
+                app’s actual data practices.
+              </p>
+              <ul className="mt-4 space-y-2 text-muted">
+                <li>
+                  FF4 Tool —{" "}
+                  <a className="text-foreground underline" href="/ff4-tool/privacy.html">
+                    Privacy
+                  </a>
+                  {" · "}
+                  <a className="text-foreground underline" href="/ff4-tool/terms.html">
+                    Terms
+                  </a>
+                  {" · "}
+                  <a className="text-foreground underline" href="/ff4-tool/">
+                    Support
+                  </a>
+                </li>
+                <li>
+                  RBX Wear —{" "}
+                  <a className="text-foreground underline" href="/rbx-wear/privacy.html">
+                    Privacy
+                  </a>
+                  {" · "}
+                  <a className="text-foreground underline" href="/rbx-wear/terms.html">
+                    Terms
+                  </a>
+                  {" · "}
+                  <a className="text-foreground underline" href="/rbx-wear/">
+                    Support
+                  </a>
+                </li>
+              </ul>
+            </GlassCard>
             {sections.map((section) => (
               <GlassCard key={section.title} hover={false}>
                 <h2 className="font-display text-xl font-bold text-foreground">

@@ -1,0 +1,83 @@
+:root {
+  --bg: #0b0b0d;
+  --bg-card: #161618;
+  --text: #f2f2f2;
+  --muted: #a8a8ae;
+  --accent: #e50914;
+  --accent-soft: #ff6b73;
+  --line: #2a2a2e;
+  --max: 720px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 17px;
+}
+a { color: var(--accent-soft); }
+header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(11, 11, 13, 0.92);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.wrap { max-width: var(--max); margin: 0 auto; padding: 20px; }
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand span {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+nav { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; }
+nav a:hover, nav a.active { color: var(--accent-soft); }
+h1 { font-size: 28px; line-height: 1.2; letter-spacing: -0.4px; margin: 8px 0 12px; }
+h2 { font-size: 20px; margin: 28px 0 8px; }
+h3 { font-size: 16px; margin: 18px 0 6px; color: var(--text); }
+p, li { color: var(--muted); }
+ul { padding-left: 1.2em; }
+li { margin: 6px 0; }
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin: 16px 0;
+}
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin: 8px 8px 0 0;
+}
+.btn:hover { filter: brightness(1.08); }
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.note { font-size: 14px; color: var(--muted); }
+code { font-size: 0.92em; color: var(--text); }
+.toc a { text-decoration: none; }

@@ -11,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/our-apps",
     "/contact",
     "/privacy",
+    "/ff4-tool",
+    "/ff4-tool/privacy",
+    "/ff4-tool/terms",
+    "/ff4-tool/support",
+    "/rbx-wear",
+    "/rbx-wear/privacy.html",
+    "/rbx-wear/terms.html",
   ];
 
   return routes.map((route) => ({

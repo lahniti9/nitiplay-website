@@ -55,6 +55,22 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href="/ff4-tool/privacy.html"
+                  className="text-muted transition-colors hover:text-foreground"
+                >
+                  FF4 Tool Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/ff4-tool/"
+                  className="text-muted transition-colors hover:text-foreground"
+                >
+                  FF4 Tool Support
+                </a>
+              </li>
+              <li>
+                <a
                   href={company.appStoreDeveloperUrl}
                   target="_blank"
                   rel="noopener noreferrer"
