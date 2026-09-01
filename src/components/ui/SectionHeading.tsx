@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
+  id?: string;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -9,6 +10,7 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({
+  id,
   eyebrow,
   title,
   description,
@@ -24,11 +26,20 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
+        <p
+          className={cn(
+            "mb-3 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-primary",
+            align === "center" && "w-full justify-center"
+          )}
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_rgba(59,130,246,0.8)]" />
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h2
+        id={id}
+        className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+      >
         {title}
       </h2>
       {description && (

@@ -6,7 +6,7 @@ import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = createPageMetadata(
   "Portfolio",
-  "Explore NitiPlay LLC's portfolio of premium mobile games and gaming utility apps for iOS and Android.",
+  "Explore NitiPlay LLC's full portfolio of mobile games and utility apps for iOS and Android.",
   "/portfolio"
 );
 
@@ -18,7 +18,7 @@ export default function PortfolioPage() {
           <SectionHeading
             eyebrow="Portfolio"
             title="Our Published Work"
-            description="A curated showcase of mobile games and gaming utilities published by NitiPlay LLC — each built with premium design and engineering."
+            description="Every app NitiPlay has shipped — puzzle games and gaming tools, each built with premium design and engineering."
           />
           <PortfolioGrid />
         </div>

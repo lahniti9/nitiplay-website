@@ -8,7 +8,7 @@ export function JsonLd() {
     "@type": "Organization",
     name: company.name,
     url: siteUrl,
-    logo: `${siteUrl}/logo.svg`,
+    logo: `${siteUrl}/logo.png`,
     description: company.description,
     email: company.email,
     foundingDate: company.founded,
@@ -19,7 +19,7 @@ export function JsonLd() {
       image: `${siteUrl}${founder.image}`,
       nationality: "Morocco",
     },
-    sameAs: [],
+    sameAs: [company.appStoreDeveloperUrl],
   };
 
   const website = {

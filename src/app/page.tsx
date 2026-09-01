@@ -14,19 +14,19 @@ export default function HomePage() {
       <FadeIn>
         <Stats />
       </FadeIn>
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.04}>
         <FeaturedApps />
       </FadeIn>
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.04}>
         <ServicesPreview />
       </FadeIn>
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.04}>
         <Testimonials />
       </FadeIn>
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.04}>
         <FAQSection />
       </FadeIn>
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.04}>
         <CTA />
       </FadeIn>
     </>

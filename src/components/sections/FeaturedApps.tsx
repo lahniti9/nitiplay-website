@@ -1,30 +1,64 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { AppCard } from "@/components/ui/AppCard";
+import { HomeAppCard } from "@/components/ui/HomeAppCard";
 import { Button } from "@/components/ui/Button";
-import { apps } from "@/lib/data";
+import { apps, filterAppsByCategory, portfolioCategories } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 export function FeaturedApps() {
-  const featured = apps.filter((a) => a.featured).slice(0, 3);
+  const [filter, setFilter] = useState<string>("All");
+  const visible = filterAppsByCategory(apps, filter);
 
   return (
-    <section className="py-20 lg:py-28" aria-labelledby="featured-apps-heading">
+    <section
+      id="apps"
+      className="scroll-mt-28 py-16 lg:py-24"
+      aria-labelledby="featured-apps-heading"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Our Apps"
-          title="Featured Releases"
-          description="Discover our latest games and gaming utilities — polished, performant, and loved by players worldwide."
+          id="featured-apps-heading"
+          eyebrow="Our apps"
+          title="Everything we shipped"
+          description="Official App Store and Google Play titles from NitiPlay — tap a store badge to download."
         />
 
-        <div className="mt-16 space-y-8">
-          {featured.map((app, i) => (
-            <AppCard key={app.id} app={app} featured={i === 0} />
+        <div
+          className="mt-10 flex flex-wrap justify-center gap-2"
+          role="tablist"
+          aria-label="Filter apps by category"
+        >
+          {portfolioCategories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              role="tab"
+              aria-selected={filter === category}
+              onClick={() => setFilter(category)}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                filter === category
+                  ? "filter-active"
+                  : "glass-card text-muted hover:text-foreground"
+              )}
+            >
+              {category}
+            </button>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((app) => (
+            <HomeAppCard key={app.id} app={app} />
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
           <Button href="/our-apps" variant="secondary">
-            View All Apps
+            View full store pages
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Button>
         </div>

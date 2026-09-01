@@ -7,13 +7,22 @@ import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = createPageMetadata(
   "Our Apps",
-  "Download NitiPlay LLC mobile games and gaming utility apps on the App Store and Google Play.",
+  "Download every NitiPlay LLC app — games and utilities on the App Store and Google Play.",
   "/our-apps"
 );
 
+const catalogSections = [
+  { title: "Games", category: "Game" as const },
+  { title: "Utilities", category: "Utility" as const },
+];
+
 export default function OurAppsPage() {
-  const games = apps.filter((a) => a.category === "Game");
-  const utilities = apps.filter((a) => a.category === "Utility");
+  const sections = catalogSections
+    .map((section) => ({
+      ...section,
+      items: apps.filter((app) => app.category === section.category),
+    }))
+    .filter((section) => section.items.length > 0);
 
   return (
     <>
@@ -22,7 +31,7 @@ export default function OurAppsPage() {
           <SectionHeading
             eyebrow="Our Apps"
             title="Download & Play"
-            description="Real apps built by NitiPlay — live on the App Store and Google Play, with more in development."
+            description="Every NitiPlay title — live on the App Store, with selected games and tools also on Google Play."
           />
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
@@ -37,31 +46,23 @@ export default function OurAppsPage() {
         </div>
       </section>
 
-      <section className="pb-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-bold text-foreground">
-            Games
-          </h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {games.map((app) => (
-              <AppCard key={app.id} app={app} />
-            ))}
+      {sections.map((section, index) => (
+        <section
+          key={section.title}
+          className={index === sections.length - 1 ? "pb-20" : "pb-12"}
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-display text-2xl font-bold text-foreground">
+              {section.title}
+            </h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {section.items.map((app) => (
+                <AppCard key={app.id} app={app} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-bold text-foreground">
-            Utilities
-          </h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {utilities.map((app) => (
-              <AppCard key={app.id} app={app} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <CTA />
     </>

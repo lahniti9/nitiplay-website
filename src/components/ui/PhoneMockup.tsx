@@ -7,6 +7,7 @@ interface PhoneMockupProps {
   screenshot: string;
   className?: string;
   showBadge?: boolean;
+  priority?: boolean;
 }
 
 export function PhoneMockup({
@@ -15,6 +16,7 @@ export function PhoneMockup({
   screenshot,
   className,
   showBadge = true,
+  priority = false,
 }: PhoneMockupProps) {
   return (
     <div
@@ -39,7 +41,7 @@ export function PhoneMockup({
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 280px, 320px"
-            priority
+            priority={priority}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
         </div>

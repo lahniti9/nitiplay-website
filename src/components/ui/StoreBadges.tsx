@@ -28,7 +28,7 @@ export function StoreBadges({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download on the App Store"
-          className="inline-block transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+          className="inline-block rounded-lg transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <Image
             src="/badges/app-store.svg"
@@ -46,7 +46,7 @@ export function StoreBadges({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Get it on Google Play"
-          className="inline-block transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+          className="inline-block rounded-lg transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <Image
             src="/badges/google-play.png"

@@ -3,17 +3,18 @@ import { stats } from "@/lib/data";
 
 export function Stats() {
   return (
-    <section className="py-16 lg:py-20" aria-label="Company statistics">
+    <section className="pb-6 lg:pb-8" aria-label="Company statistics">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="glass-card grid grid-cols-2 gap-8 rounded-xl p-8 sm:grid-cols-4 sm:p-10">
+        <div className="grid grid-cols-2 divide-y divide-border rounded-2xl border border-border/80 bg-white/[0.02] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
           {stats.map((stat) => (
-            <StatCounter
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              decimals={stat.decimals}
-            />
+            <div key={stat.label} className="px-4 py-7 sm:px-6">
+              <StatCounter
+                value={stat.value}
+                suffix={stat.suffix}
+                label={stat.label}
+                decimals={stat.decimals}
+              />
+            </div>
           ))}
         </div>
       </div>

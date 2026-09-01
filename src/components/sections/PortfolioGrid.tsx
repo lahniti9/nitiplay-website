@@ -2,18 +2,13 @@
 
 import { useState } from "react";
 import { AppCard } from "@/components/ui/AppCard";
-import { apps, portfolioCategories } from "@/lib/data";
+import { apps, filterAppsByCategory, portfolioCategories } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function PortfolioGrid() {
   const [filter, setFilter] = useState<string>("All");
 
-  const filtered =
-    filter === "All"
-      ? apps
-      : filter === "Games"
-        ? apps.filter((a) => a.category === "Game")
-        : apps.filter((a) => a.category === "Utility");
+  const filtered = filterAppsByCategory(apps, filter);
 
   return (
     <>
@@ -41,10 +36,14 @@ export function PortfolioGrid() {
         ))}
       </div>
 
-      <div className="mt-16 grid gap-8 md:grid-cols-2">
-        {filtered.map((app) => (
-          <AppCard key={app.id} app={app} />
-        ))}
+      <div className="mt-16 grid gap-5 md:grid-cols-2">
+        {filtered.length > 0 ? (
+          filtered.map((app) => <AppCard key={app.id} app={app} />)
+        ) : (
+          <p className="col-span-full text-center text-muted">
+            No apps in this category yet.
+          </p>
+        )}
       </div>
     </>
   );

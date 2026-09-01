@@ -3,17 +3,19 @@ import { Button } from "@/components/ui/Button";
 
 export function CTA() {
   return (
-    <section className="py-20 lg:py-28" aria-labelledby="cta-heading">
+    <section className="py-16 lg:py-24" aria-labelledby="cta-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="glass-card relative overflow-hidden rounded-xl px-8 py-16 text-center sm:px-16 sm:py-20">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.06),transparent_60%)]" />
+        <div className="glass-card relative overflow-hidden rounded-2xl px-8 py-16 text-center sm:px-16 sm:py-20">
+          <div className="pointer-events-none absolute -left-16 -top-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -right-10 h-64 w-64 rounded-full bg-violet-500/15 blur-3xl" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_58%)]" />
           <div className="relative">
             <h2
               id="cta-heading"
               className="font-display text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
             >
               Ready to Build Something{" "}
-              <span className="text-primary">Extraordinary?</span>
+              <span className="text-gradient">Extraordinary?</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
               Whether you&apos;re launching a game, building a gaming utility, or

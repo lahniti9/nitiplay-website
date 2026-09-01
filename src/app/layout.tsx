@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PremiumBackground } from "@/components/layout/PremiumBackground";
+import { PageSpotlight } from "@/components/layout/PageSpotlight";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -22,8 +23,14 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   ...baseMetadata,
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/logo.png", sizes: "512x512", type: "image/png" },
+    ],
   },
   manifest: "/manifest.json",
 };
@@ -36,10 +43,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans antialiased">
         <PremiumBackground />
+        <PageSpotlight />
         <JsonLd />
         <a href="#main-content" className="skip-link">
           Skip to main content

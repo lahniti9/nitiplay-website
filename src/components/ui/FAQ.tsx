@@ -25,7 +25,7 @@ export function FAQ({ items, className }: FAQProps) {
         return (
           <div
             key={item.question}
-            className="glass-card overflow-hidden rounded-xl"
+            className="glass-card overflow-hidden rounded-xl transition-transform duration-300 hover:-translate-y-0.5"
             role="listitem"
           >
             <button

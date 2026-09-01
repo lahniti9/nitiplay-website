@@ -1,93 +1,108 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { StoreBadges } from "@/components/ui/StoreBadges";
-import { HeroShowcase } from "@/components/sections/HeroShowcase";
 import { apps, company } from "@/lib/data";
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 export function Hero() {
   const featuredApp =
-    apps.find((a) => a.id === "arrow-maze-rush") ??
-    apps.find((a) => a.featured) ??
-    apps[0];
+    apps.find((app) => app.featured) ?? apps[0];
 
   return (
     <section
-      className="relative min-h-screen overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28"
+      className="relative overflow-hidden pt-28 pb-10 lg:pt-36 lg:pb-14"
       aria-labelledby="hero-heading"
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10 xl:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.15, ease }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full glass-card px-4 py-1.5 text-sm"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-muted">iOS & Android Publishing</span>
-            </motion.div>
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full glass-card px-4 py-1.5 text-sm text-muted">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              NitiPlay LLC · App Store & Google Play
+            </p>
 
             <h1
               id="hero-heading"
-              className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+              className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
             >
-              Games & Apps
+              Games and apps
               <br />
-              <span className="text-primary">Built to Play</span>
+              <span className="text-gradient">built to play</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-              NitiPlay LLC publishes high-quality mobile games and gaming utility
-              apps — crafted with Apple-level polish for players who expect the
-              best.
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+              We design, build, and publish mobile games and useful apps.
+              Download them below, or partner with us on your next release.
             </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
-              <Button href="/our-apps" size="lg">
-                Explore Our Apps
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="#apps" size="lg">
+                See our apps
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Button>
               <Button href="/contact" variant="outline" size="lg">
-                Partner With Us
+                Contact us
               </Button>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4, ease }}
-              className="mt-10"
-            >
+            <div className="mt-8">
               <StoreBadges
                 appStoreUrl={company.appStoreDeveloperUrl}
                 playStoreUrl={featuredApp.playStoreUrl}
                 size="sm"
               />
-            </motion.div>
+            </div>
+
+            <div className="mt-8 flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {apps.map((app) => (
+                  <Link
+                    key={app.id}
+                    href="#apps"
+                    title={app.name}
+                    className="relative h-10 w-10 overflow-hidden rounded-xl border-2 border-[#050508] transition-transform hover:z-10 hover:scale-110"
+                  >
+                    <Image
+                      src={app.icon}
+                      alt={app.name}
+                      fill
+                      className="object-cover"
+                      sizes="40px"
+                    />
+                  </Link>
+                ))}
+              </div>
+              <p className="text-sm text-muted">{apps.length} titles live now</p>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.15, ease }}
-            className="relative flex justify-center lg:justify-end"
+            transition={{ duration: 0.8, delay: 0.12, ease }}
+            className="relative"
           >
-            <HeroShowcase />
+            <div className="pointer-events-none absolute -inset-8 rounded-[2.5rem] bg-primary/15 blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-border-light shadow-[0_32px_80px_rgba(0,0,0,0.45)]">
+              <Image
+                src="/images/hero-devices.png"
+                alt="NitiPlay games and apps shown on iPhone screens"
+                width={1600}
+                height={900}
+                priority
+                className="h-auto w-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

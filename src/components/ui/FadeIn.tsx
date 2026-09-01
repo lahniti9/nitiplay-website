@@ -25,10 +25,14 @@ export function FadeIn({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: offset }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: offset }}
+      initial={{ opacity: 0, y: offset, filter: "blur(8px)" }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, filter: "blur(0px)" }
+          : { opacity: 0, y: offset, filter: "blur(8px)" }
+      }
       transition={{
-        duration: 0.65,
+        duration: 0.75,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}

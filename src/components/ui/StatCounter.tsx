@@ -59,11 +59,11 @@ export function StatCounter({
 
   return (
     <div ref={ref} className={cn("text-center", className)}>
-      <p className="font-display text-4xl font-bold text-foreground sm:text-5xl">
+      <p className="font-display text-3xl font-bold text-gradient sm:text-4xl">
         {display}
         {suffix}
       </p>
-      <p className="mt-2 text-sm font-medium text-muted">{label}</p>
+      <p className="mt-1.5 text-xs font-medium text-muted sm:text-sm">{label}</p>
     </div>
   );
 }
